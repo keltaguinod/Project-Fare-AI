@@ -1,14 +1,10 @@
 # 🚍 BiyaheOffline
 
-**A zero-load, offline-first PWA commuter copilot for Filipino students.**
-Ask in messy Taglish — *"Galing ako Cubao, papuntang UP, magkano?"* — and get the exact
-jeepney to ride, the distance, and the **legally correct student fare**, even in Airplane Mode.
+SHORT DESCRIPTION:
+A zero-load, offline-first PWA commuter copilot for Filipino students. Type any Philippine place (or tap 📍 to use your GPS) and get the jeepney fare instantly — with exact LTFRB student-fare math, a nationwide offline place database (~45k places), and an airplane-mode GPS "drop-off" alarm. A local Taglish AI (WebLLM on WebGPU) understands messy queries. All computation runs on the device — it works with zero internet and zero load.
 
-> Cloud navigation and cloud AI assistants die the moment your prepaid load expires or you
-> hit an LRT-underpass dead zone. BiyaheOffline runs the **entire AI + the math on the
-> device**, so it keeps working with no internet at all.
 
----
+======================================================================================================================================================================
 
 ## What makes it work: Code guarantees, AI translates
 
@@ -178,38 +174,3 @@ September 28 2026** (`Traditional PUJ.pdf`, `Modern PUJ.pdf`), validated by `eng
 Multi-ride (transfer) trips sum each leg's fare, since each jeepney ride is charged separately.
 
 ---
-
-## Demo / proof video script (< 3 min)
-
-1. Open the app on the phone over Wi-Fi; open the **✨ menu** beside the send box → **Load AI**, wait for "on".
-2. **Turn on Airplane Mode** on camera — show the network chip flip to *✈ Offline-ready*.
-3. Fully close and reopen Chrome → the PWA still opens (Service Worker).
-4. Type a Taglish destination (or "from X to Y") → show the **instant** fare, computed on-device.
-5. Tap **📍** to use your live GPS as the origin → search a destination → fare, still offline.
-6. On a route card, tap **Gising-Drop Alarm** → show the live GPS distance counting down.
-
----
-
-## Open-source disclosures (for the submission form)
-
-- **WebLLM** (MLC AI) — in-browser LLM runtime. _open source_
-- **WebGPU** — browser GPU inference API.
-- **Model:** `Qwen2.5-1.5B-Instruct-q4f16_1-MLC` (or the `Llama-3.2-1B-Instruct` / `Qwen2.5-0.5B` variant actually demoed). _open weights_
-- **Vite** + **vite-plugin-pwa (Workbox)** — build & Service Worker. _open source_
-- **Data:** place gazetteer derived from **GeoNames** (Philippines), licensed **CC BY 4.0** — https://www.geonames.org/
-- **AI coding tool:** Claude Code (Anthropic) assisted development.
-- All fare, distance & route math is **deterministic JavaScript**, not AI.
-
----
-
-## Team
-
-| Dev | Area | Code |
-|---|---|---|
-| **Nicole** | Layer A — routing & fare math | `src/engine/*` |
-| **JM** | Layer B — local AI pipeline | `src/ai/*` |
-| **Hassan** | Frontend, PWA Service Worker, GPS alarm, submission | `index.html`, `src/main.js`, `src/geo/*`, `vite.config.js` |
-
-> Nicole's 6 original corridors (Fairview–Philcoa, Cubao–Quiapo, Taft–Baclaran, Cubao–Ortigas,
-> Pasig–Quiapo, Morayta–Quiapo) are unified into the single engine at `src/engine/` — one
-> canonical Layer A, verified against the official LTFRB table (eff. Sep 28 2026).
