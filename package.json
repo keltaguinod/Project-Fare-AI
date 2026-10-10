@@ -1,0 +1,21 @@
+{
+  "name": "biyaheoffline",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "BiyaheOffline — a zero-load, offline-first PWA commuter copilot: 100% accurate jeepney routing + legal student-fare math (deterministic JS) with a local Taglish AI brain (WebLLM on WebGPU).",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --host",
+    "test": "node tests/matcher.test.mjs && node tests/engine.test.mjs && node tests/faretable.test.mjs && node tests/trip.test.mjs && node --no-warnings --loader ./tests/stub/webllm-loader.mjs tests/ai.test.mjs",
+    "gazetteer": "node scripts/build-gazetteer.mjs"
+  },
+  "dependencies": {
+    "@mlc-ai/web-llm": "^0.2.85"
+  },
+  "devDependencies": {
+    "vite": "^8.3.4",
+    "vite-plugin-pwa": "^2.0.0"
+  }
+}

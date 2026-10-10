@@ -1,0 +1,408 @@
+{
+"effective": "September 28, 2026",
+"source": "LTFRB General Fare Guide (NEW FARE RATE)",
+"traditional": {
+"1": {
+"regular": 14.0,
+"student": 11.25
+},
+"26": {
+"regular": 58.0,
+"student": 46.5
+},
+"2": {
+"regular": 14.0,
+"student": 11.25
+},
+"27": {
+"regular": 60.0,
+"student": 48.0
+},
+"3": {
+"regular": 14.0,
+"student": 11.25
+},
+"28": {
+"regular": 62.0,
+"student": 49.5
+},
+"4": {
+"regular": 14.0,
+"student": 11.25
+},
+"29": {
+"regular": 64.0,
+"student": 51.25
+},
+"5": {
+"regular": 16.0,
+"student": 12.75
+},
+"30": {
+"regular": 66.0,
+"student": 52.75
+},
+"6": {
+"regular": 18.0,
+"student": 14.5
+},
+"31": {
+"regular": 68.0,
+"student": 54.5
+},
+"7": {
+"regular": 20.0,
+"student": 16.0
+},
+"32": {
+"regular": 70.0,
+"student": 56.0
+},
+"8": {
+"regular": 22.0,
+"student": 17.5
+},
+"33": {
+"regular": 72.0,
+"student": 57.5
+},
+"9": {
+"regular": 24.0,
+"student": 19.25
+},
+"34": {
+"regular": 74.0,
+"student": 59.25
+},
+"10": {
+"regular": 26.0,
+"student": 20.75
+},
+"35": {
+"regular": 76.0,
+"student": 60.75
+},
+"11": {
+"regular": 28.0,
+"student": 22.5
+},
+"36": {
+"regular": 78.0,
+"student": 62.5
+},
+"12": {
+"regular": 30.0,
+"student": 24.0
+},
+"37": {
+"regular": 80.0,
+"student": 64.0
+},
+"13": {
+"regular": 32.0,
+"student": 25.5
+},
+"38": {
+"regular": 82.0,
+"student": 65.5
+},
+"14": {
+"regular": 34.0,
+"student": 27.25
+},
+"39": {
+"regular": 84.0,
+"student": 67.25
+},
+"15": {
+"regular": 36.0,
+"student": 28.75
+},
+"40": {
+"regular": 86.0,
+"student": 68.75
+},
+"16": {
+"regular": 38.0,
+"student": 30.5
+},
+"41": {
+"regular": 88.0,
+"student": 70.5
+},
+"17": {
+"regular": 40.0,
+"student": 32.0
+},
+"42": {
+"regular": 90.0,
+"student": 72.0
+},
+"18": {
+"regular": 42.0,
+"student": 33.5
+},
+"43": {
+"regular": 92.0,
+"student": 73.5
+},
+"19": {
+"regular": 44.0,
+"student": 35.25
+},
+"44": {
+"regular": 94.0,
+"student": 75.25
+},
+"20": {
+"regular": 46.0,
+"student": 36.75
+},
+"45": {
+"regular": 96.0,
+"student": 76.75
+},
+"21": {
+"regular": 48.0,
+"student": 38.5
+},
+"46": {
+"regular": 98.0,
+"student": 78.5
+},
+"22": {
+"regular": 50.0,
+"student": 40.0
+},
+"47": {
+"regular": 100.0,
+"student": 80.0
+},
+"23": {
+"regular": 52.0,
+"student": 41.5
+},
+"48": {
+"regular": 102.0,
+"student": 81.5
+},
+"24": {
+"regular": 54.0,
+"student": 43.25
+},
+"49": {
+"regular": 104.0,
+"student": 83.25
+},
+"25": {
+"regular": 56.0,
+"student": 44.75
+},
+"50": {
+"regular": 106.0,
+"student": 84.75
+}
+},
+"modern": {
+"1": {
+"regular": 17.0,
+"student": 13.5
+},
+"26": {
+"regular": 69.75,
+"student": 55.75
+},
+"2": {
+"regular": 17.0,
+"student": 13.5
+},
+"27": {
+"regular": 72.25,
+"student": 57.75
+},
+"3": {
+"regular": 17.0,
+"student": 13.5
+},
+"28": {
+"regular": 74.5,
+"student": 59.75
+},
+"4": {
+"regular": 17.0,
+"student": 13.5
+},
+"29": {
+"regular": 77.0,
+"student": 61.5
+},
+"5": {
+"regular": 19.5,
+"student": 15.5
+},
+"30": {
+"regular": 79.5,
+"student": 63.5
+},
+"6": {
+"regular": 21.75,
+"student": 17.5
+},
+"31": {
+"regular": 81.75,
+"student": 65.5
+},
+"7": {
+"regular": 24.25,
+"student": 19.25
+},
+"32": {
+"regular": 84.25,
+"student": 67.25
+},
+"8": {
+"regular": 26.5,
+"student": 21.25
+},
+"33": {
+"regular": 86.5,
+"student": 69.25
+},
+"9": {
+"regular": 29.0,
+"student": 23.25
+},
+"34": {
+"regular": 89.0,
+"student": 71.25
+},
+"10": {
+"regular": 31.5,
+"student": 25.0
+},
+"35": {
+"regular": 91.5,
+"student": 73.0
+},
+"11": {
+"regular": 33.75,
+"student": 27.0
+},
+"36": {
+"regular": 93.75,
+"student": 75.0
+},
+"12": {
+"regular": 36.25,
+"student": 29.0
+},
+"37": {
+"regular": 96.25,
+"student": 77.0
+},
+"13": {
+"regular": 38.5,
+"student": 31.0
+},
+"38": {
+"regular": 98.5,
+"student": 79.0
+},
+"14": {
+"regular": 41.0,
+"student": 32.75
+},
+"39": {
+"regular": 101.0,
+"student": 80.75
+},
+"15": {
+"regular": 43.5,
+"student": 34.75
+},
+"40": {
+"regular": 103.5,
+"student": 82.75
+},
+"16": {
+"regular": 45.75,
+"student": 36.75
+},
+"41": {
+"regular": 105.75,
+"student": 84.75
+},
+"17": {
+"regular": 48.25,
+"student": 38.5
+},
+"42": {
+"regular": 108.25,
+"student": 86.5
+},
+"18": {
+"regular": 50.5,
+"student": 40.5
+},
+"43": {
+"regular": 110.5,
+"student": 88.5
+},
+"19": {
+"regular": 53.0,
+"student": 42.5
+},
+"44": {
+"regular": 113.0,
+"student": 90.5
+},
+"20": {
+"regular": 55.5,
+"student": 44.25
+},
+"45": {
+"regular": 115.5,
+"student": 92.25
+},
+"21": {
+"regular": 57.75,
+"student": 46.25
+},
+"46": {
+"regular": 117.75,
+"student": 94.25
+},
+"22": {
+"regular": 60.25,
+"student": 48.25
+},
+"47": {
+"regular": 120.25,
+"student": 96.25
+},
+"23": {
+"regular": 62.5,
+"student": 50.0
+},
+"48": {
+"regular": 122.5,
+"student": 98.0
+},
+"24": {
+"regular": 65.0,
+"student": 52.0
+},
+"49": {
+"regular": 125.0,
+"student": 100.0
+},
+"25": {
+"regular": 67.5,
+"student": 54.0
+},
+"50": {
+"regular": 127.5,
+"student": 102.0
+}
+}
+}
