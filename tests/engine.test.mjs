@@ -58,6 +58,19 @@ check("sm_north→katipunan modern ₱21.75 / ₱17.50", r3.jeepType === "modern
 const r4 = plan("cubao", "katipunan");
 check("cubao→katipunan modern min ₱17 / ₱13.50", r4.regularFare === 17.0 && r4.studentFare === 13.5);
 
+// ---- corridors unified from Nicole's original engine (values from her table) ----
+const n1 = plan("fairview", "philcoa");
+check("fairview→philcoa 14km ₱34 / ₱27.25", near(n1.distanceKm, 14) && n1.regularFare === 34 && n1.studentFare === 27.25);
+check("fairview→philcoa signboard", n1.signboard === "Commonwealth / Philcoa");
+const n2 = plan("cubao", "quiapo");
+check("cubao→quiapo 9.5km ₱26 / ₱20.75", near(n2.distanceKm, 9.5) && n2.regularFare === 26 && n2.studentFare === 20.75);
+const n3 = plan("taft_vitocruz", "baclaran");
+check("taft→baclaran 5.6km ₱18 / ₱14.50", n3.regularFare === 18 && n3.studentFare === 14.5);
+const n4 = plan("cubao", "ortigas");
+check("cubao→ortigas 5.5km ₱18 / ₱14.50", n4.regularFare === 18 && n4.studentFare === 14.5);
+const n5 = plan("pasig_palengke", "quiapo");
+check("pasig→quiapo 11.2km ₱30 / ₱24", near(n5.distanceKm, 11.2) && n5.regularFare === 30 && n5.studentFare === 24);
+
 // ---- routing: one transfer -------------------------------------------------
 const rt = plan("quiapo", "up_diliman"); // L2 Quiapo→Philcoa, transfer, L1 Philcoa→UP
 check("quiapo→up needs 1 transfer", rt.transfers.length === 1 && rt.legs.length === 2);

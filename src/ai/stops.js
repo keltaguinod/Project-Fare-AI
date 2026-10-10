@@ -36,7 +36,7 @@ export const STOPS = [
     id: "espana_ust",
     name: "España / UST",
     coords: { lat: 14.6097, lng: 120.9890 },
-    aliases: ["ust", "u.s.t.", "espana", "españa", "espanya", "lacson", "dapitan"],
+    aliases: ["ust", "u.s.t.", "espana", "españa", "espanya", "lacson", "dapitan", "morayta", "feu", "feu tech", "recto"],
   },
   {
     id: "sm_north",
@@ -55,6 +55,38 @@ export const STOPS = [
     name: "Divisoria",
     coords: { lat: 14.6030, lng: 120.9690 },
     aliases: ["divisoria", "divi", "168 mall", "tutuban"],
+  },
+  // --- corridors unified from Nicole's original fareEngine.js ---
+  {
+    id: "fairview",
+    name: "Fairview",
+    coords: { lat: 14.7360, lng: 121.0575 },
+    aliases: ["fairview", "sm fairview", "fairview terminal"],
+  },
+  {
+    id: "ortigas",
+    name: "Ortigas",
+    coords: { lat: 14.5850, lng: 121.0570 },
+    aliases: ["ortigas", "ortigas center", "megamall", "sm megamall", "edsa shangri-la", "shangri-la"],
+  },
+  {
+    id: "taft_vitocruz",
+    name: "Taft (Vito Cruz)",
+    coords: { lat: 14.5635, lng: 120.9940 },
+    aliases: ["taft", "vito cruz", "dlsu", "la salle", "taft avenue"],
+  },
+  {
+    id: "baclaran",
+    name: "Baclaran",
+    coords: { lat: 14.5330, lng: 120.9960 },
+    aliases: ["baclaran", "redemptorist", "baclaran church"],
+  },
+  {
+    id: "pasig_palengke",
+    name: "Pasig Palengke",
+    coords: { lat: 14.5760, lng: 121.0790 },
+    // deliberately no bare "pasig": Ortigas is also in Pasig City
+    aliases: ["pasig palengke", "pasig market"],
   },
 ];
 

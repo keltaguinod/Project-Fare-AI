@@ -59,6 +59,52 @@ export const LINES = [
       { id: "katipunan", km: 3.0 },
     ],
   },
+  // --- corridors unified from Nicole's original fareEngine.js (distances hers) ---
+  {
+    id: "N1",
+    signboard: "Commonwealth / Philcoa",
+    type: "traditional",
+    stops: [
+      { id: "fairview", km: 0.0 },
+      { id: "philcoa", km: 14.0 },
+    ],
+  },
+  {
+    id: "N2",
+    signboard: "Cubao–Quiapo",
+    type: "traditional",
+    stops: [
+      { id: "cubao", km: 0.0 },
+      { id: "quiapo", km: 9.5 },
+    ],
+  },
+  {
+    id: "N3",
+    signboard: "Taft–Baclaran",
+    type: "traditional",
+    stops: [
+      { id: "taft_vitocruz", km: 0.0 },
+      { id: "baclaran", km: 5.6 },
+    ],
+  },
+  {
+    id: "N4",
+    signboard: "Cubao–Ortigas",
+    type: "traditional",
+    stops: [
+      { id: "cubao", km: 0.0 },
+      { id: "ortigas", km: 5.5 },
+    ],
+  },
+  {
+    id: "N5",
+    signboard: "Pasig–Quiapo",
+    type: "traditional",
+    stops: [
+      { id: "pasig_palengke", km: 0.0 },
+      { id: "quiapo", km: 11.2 },
+    ],
+  },
 ];
 
 /** index: stop id -> [{ line, km }] for every line that serves that stop. */

@@ -206,10 +206,10 @@ Multi-ride (transfer) trips sum each leg's fare, since each jeepney ride is char
 
 | Dev | Area | Code |
 |---|---|---|
-| **Nicole** | Layer A — routing & fare math | `src/engine/*` · original standalone engine kept at `src/fareEngine.js` |
+| **Nicole** | Layer A — routing & fare math | `src/engine/*` |
 | **JM** | Layer B — local AI pipeline | `src/ai/*` |
 | **Hassan** | Frontend, PWA Service Worker, GPS alarm, submission | `index.html`, `src/main.js`, `src/geo/*`, `vite.config.js` |
 
-> `src/fareEngine.js` (+ `src/fareEngine.test.mjs`) is Nicole's original Layer A engine, kept
-> intact in this repo. The live app wires to `src/engine/` — the fare math is identical and both
-> are verified against the official LTFRB table (eff. Sep 28 2026).
+> Nicole's 6 original corridors (Fairview–Philcoa, Cubao–Quiapo, Taft–Baclaran, Cubao–Ortigas,
+> Pasig–Quiapo, Morayta–Quiapo) are unified into the single engine at `src/engine/` — one
+> canonical Layer A, verified against the official LTFRB table (eff. Sep 28 2026).

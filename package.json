@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview --host",
-    "test": "node src/fareEngine.test.mjs && node tests/matcher.test.mjs && node tests/engine.test.mjs && node tests/faretable.test.mjs && node tests/trip.test.mjs && node --no-warnings --loader ./tests/stub/webllm-loader.mjs tests/ai.test.mjs",
+    "test": "node tests/matcher.test.mjs && node tests/engine.test.mjs && node tests/faretable.test.mjs && node tests/trip.test.mjs && node --no-warnings --loader ./tests/stub/webllm-loader.mjs tests/ai.test.mjs",
     "gazetteer": "node scripts/build-gazetteer.mjs"
   },
   "dependencies": {
