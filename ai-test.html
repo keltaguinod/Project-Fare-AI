@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BiyaheOffline AI Test</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #0f1115; color: #e8e8e8; margin: 0; padding: 16px; }
+    h1 { font-size: 18px; } button, input, select { font-size: 16px; padding: 10px; border-radius: 8px; border: 1px solid #333; }
+    button { background: #2f7cf6; color: #fff; border: 0; margin: 4px 0; width: 100%; }
+    input, select { width: 100%; box-sizing: border-box; background: #1a1d24; color: #e8e8e8; margin: 4px 0; }
+    pre { background: #1a1d24; padding: 10px; border-radius: 8px; white-space: pre-wrap; font-size: 13px; }
+    .bar { height: 8px; background: #333; border-radius: 4px; } .bar > div { height: 8px; background: #2f7cf6; border-radius: 4px; width: 0; }
+  </style>
+</head>
+<body>
+  <h1>BiyaheOffline · AI pipeline test</h1>
+  <select id="model">
+    <option value="Qwen2.5-1.5B-Instruct-q4f16_1-MLC">Qwen2.5 1.5B (better Taglish)</option>
+    <option value="Llama-3.2-1B-Instruct-q4f16_1-MLC">Llama 3.2 1B (faster)</option>
+    <option value="Qwen2.5-0.5B-Instruct-q4f16_1-MLC">Qwen2.5 0.5B (weak phones)</option>
+  </select>
+  <button id="load">1. Load model (Wi-Fi first time)</button>
+  <div class="bar"><div id="bar"></div></div>
+  <pre id="status">Not loaded.</pre>
+
+  <input id="q" value="Galing ako Cubao, papuntang UP, magkano?" />
+  <button id="ask">2. Parse my question</button>
+  <button id="all">3. Run full Taglish test set (for pitch numbers)</button>
+  <pre id="out"></pre>
+
+  <script type="module">
+    import * as ai from "./src/ai/ai.js";
+    const $ = (id) => document.getElementById(id);
+
+    const gpu = await ai.checkWebGPU();
+    $("status").textContent = gpu.ok ? `WebGPU OK (shader-f16: ${gpu.shaderF16})` : "❌ " + gpu.reason;
+    $("status").textContent += `\nModel cached on phone: ${await ai.isModelCached($("model").value)}`;
+
+    $("load").onclick = async () => {
+      try {
+        await ai.loadModel({
+          modelId: $("model").value,
+          onProgress: ({ progress, text }) => { $("bar").style.width = progress * 100 + "%"; $("status").textContent = text; },
+        });
+        $("status").textContent = `✅ ${ai.stats.model} loaded in ${(ai.stats.loadMs / 1000).toFixed(1)} s`;
+      } catch (e) { $("status").textContent = "❌ " + e.message; }
+    };
+
+    $("ask").onclick = async () => {
+      const r = await ai.parseQuery($("q").value);
+      $("out").textContent = JSON.stringify({ ...r, suggestions: r.suggestions.length + " stops" }, null, 2) +
+        `\n\nTime: ${ai.stats.lastParseMs} ms via ${ai.stats.lastParseSource}`;
+    };
+
+    // Expected answers. Add the team's real commuter questions here.
+    const TESTS = [
+      ["Galing ako Cubao, papuntang UP, magkano?", "cubao", "up_diliman"],
+      ["I am in Cubao going to UP Diliman", "cubao", "up_diliman"],
+      ["pauwi na ko sa Philcoa from Quiapo, anong jeep?", "quiapo", "philcoa"],
+      ["nasa Trinoma ako, gusto ko pumunta Katipunan", "sm_north", "katipunan"],
+      ["papunta akong UST galing Divisoria", "divisoria", "espana_ust"],
+      ["andito ako sa may Araneta, baba ko sa Ateneo", "cubao", "katipunan"],
+      ["yung jeep from Philcoa hanggang Quiapo magkano student?", "philcoa", "quiapo"],
+      ["ibaba mo ko sa Divi, nasa España ako", "espana_ust", "divisoria"],
+      ["sakay ako sa SM North, uwi ako UP", "sm_north", "up_diliman"],
+      ["paano pumunta ng UST?", null, "espana_ust"],
+    ];
+
+    $("all").onclick = async () => {
+      let ok = 0, ms = 0, lines = [];
+      for (const [q, o, d] of TESTS) {
+        const r = await ai.parseQuery(q);
+        const good = (r.origin?.id ?? null) === o && (r.destination?.id ?? null) === d;
+        ok += good; ms += ai.stats.lastParseMs;
+        lines.push(`${good ? "✅" : "❌"} [${ai.stats.lastParseSource}, ${ai.stats.lastParseMs} ms] ${q}\n   → ${r.origin?.id} → ${r.destination?.id}`);
+      }
+      $("out").textContent = `${ok}/${TESTS.length} correct · avg ${Math.round(ms / TESTS.length)} ms\n\n` + lines.join("\n");
+    };
+  </script>
+</body>
+</html>

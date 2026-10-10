@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="fil">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b7d3b" />
+    <meta
+      name="description"
+      content="BiyaheOffline — offline jeepney routing, legal student-fare math, and an airplane-mode GPS wake-up alarm. Gumagana kahit walang load."
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <title>BiyaheOffline · Commuter Copilot</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <div class="brand">
+          <span class="logo" aria-hidden="true">🚍</span>
+          <div>
+            <h1>BiyaheOffline</h1>
+            <p class="tag">Zero-load commuter copilot</p>
+          </div>
+        </div>
+        <div class="chips" id="chips">
+          <span class="chip" id="chip-net" title="Network">● …</span>
+        </div>
+      </header>
+
+      <!-- Conversation -->
+      <main id="chat" class="chat" aria-live="polite"></main>
+
+      <!-- Stop picker (shown when the AI/rules can't tell origin or destination) -->
+      <section id="picker" class="picker" hidden>
+        <p id="picker-q" class="picker-q"></p>
+        <div id="picker-buttons" class="picker-buttons"></div>
+      </section>
+
+      <!-- "From my location" chip (set once GPS is used as origin) -->
+      <div id="origin-chip" class="origin-chip" hidden>
+        <span>📍 Galing: <b id="origin-chip-name">Lokasyon ko</b></span>
+        <button id="origin-chip-clear" type="button" aria-label="Clear">✕</button>
+      </div>
+
+      <!-- Composer: search is the main interface. 📍 = use my GPS as origin; ✨ = local AI menu -->
+      <form id="composer" class="composer">
+        <button id="gps" class="btn-ic" type="button" title="Gamitin ang lokasyon ko bilang pinanggalingan">📍</button>
+        <input
+          id="q"
+          type="text"
+          autocomplete="off"
+          placeholder="Saan papunta? Hal: SM Megamall, o 'Marikina papuntang Pasig'"
+          value=""
+        />
+        <button id="ai-toggle" class="btn-ic" type="button" title="Local AI (opsyonal)" aria-expanded="false">✨</button>
+        <button id="send" class="btn-send" type="submit" aria-label="Send">➤</button>
+      </form>
+
+      <!-- Hidden local-AI menu (opened by the ✨ button, GPT-style) -->
+      <div id="ai-menu" class="ai-menu" hidden>
+        <div class="ai-menu-head">
+          <strong>Local AI brain <span class="opt">· opsyonal</span></strong>
+          <span id="ai-status" class="ai-status">…</span>
+        </div>
+        <p class="hint">
+          Para sa magulong Taglish. Gumagana na ang search kahit walang AI — rules + fare math ’yon.
+          Nag-i-infer locally (WebLLM + WebGPU); hindi kailangan ng cloud.
+        </p>
+        <select id="model" aria-label="Model">
+          <option value="Qwen2.5-1.5B-Instruct-q4f16_1-MLC">Qwen2.5 1.5B · best Taglish</option>
+          <option value="Llama-3.2-1B-Instruct-q4f16_1-MLC">Llama 3.2 1B · faster</option>
+          <option value="Qwen2.5-0.5B-Instruct-q4f16_1-MLC">Qwen2.5 0.5B · weak phones</option>
+        </select>
+        <div class="bar" aria-hidden="true"><div id="bar"></div></div>
+        <button id="load" class="btn-primary">Load AI (Wi-Fi first time, then offline)</button>
+        <p class="hint" id="load-hint"></p>
+      </div>
+
+      <!-- Offline-proof panel -->
+      <details class="proof" id="proof">
+        <summary>Offline Proof &amp; Tech</summary>
+        <dl id="proof-list">
+          <div><dt>Network</dt><dd id="pf-net">—</dd></div>
+          <div><dt>WebGPU</dt><dd id="pf-gpu">checking…</dd></div>
+          <div><dt>Model cached on device</dt><dd id="pf-cache">—</dd></div>
+          <div><dt>Model</dt><dd id="pf-model">not loaded</dd></div>
+          <div><dt>Load time</dt><dd id="pf-load">—</dd></div>
+          <div><dt>Last parse</dt><dd id="pf-parse">—</dd></div>
+        </dl>
+        <p class="disclose">
+          Local AI: <b>WebLLM</b> (MLC AI, open source) on <b>WebGPU</b>, model cached on-device after
+          first load — all inference is local. Fare &amp; route math are <b>deterministic JavaScript</b>
+          (LTFRB new rates, effective Sep 28 2026), never the AI. Offline GPS alarm via the HTML5
+          Geolocation API (satellite, no data).
+        </p>
+      </details>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
